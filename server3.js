@@ -37,6 +37,17 @@ app.get("/gettodo", (req, res) => {
     res.send(data);
 });
 
+app.get('/deletetodo', (req, res) => {
+    let data = fs.readFileSync("todo.txt");
+    let arr = JSON.parse(data);
+    arr = arr.filter((item) => {
+        return item.id != req.query.id;
+    });
+    fs.writeFileSync("todo.txt", JSON.stringify(arr));
+    res.send("deleted");
+});
+
 app.listen(3000, () => {
     console.log("Server is running at port 3000");
 });
+
