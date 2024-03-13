@@ -34,13 +34,25 @@ function AddTask(obj){
     const span = document.createElement('span');
     span.textContent = obj.task;
     li.appendChild(span);
-    const button = document.createElement('button');
-    button.textContent = 'Delete';
-    button.addEventListener('click', async () => {
+
+    const update = document.createElement('button');
+    update.textContent = 'Update';
+    let div1 = document.createElement('div');
+    update.addEventListener('click', async () => {
+        if(task.value.trim() != ""){
+            await fetch(`/updatetodo?id=${obj.id}&task=${task.value}`);    
+            span.textContent = task.value;
+        }
+    });
+    div1.appendChild(update);
+    const del = document.createElement('button');
+    del.textContent = 'Delete';
+    del.addEventListener('click', async () => {
         await fetch(`/deletetodo?id=${obj.id}`);
         ul.removeChild(li);
     });
-    li.appendChild(button);
+    div1.appendChild(del);
+    li.appendChild(div1);
     ul.appendChild(li);
 
 }

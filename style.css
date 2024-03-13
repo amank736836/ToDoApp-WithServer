@@ -16,10 +16,10 @@ body{
 }
 
 li{
-    padding: 10px;
+    padding: 5px;
     text-align: center;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 span{
@@ -33,4 +33,23 @@ span:hover{
     padding: 10px;
     text-align: center;
     justify-content: space-between;
+}
+
+input{
+    border-radius: 25px;
+}
+
+input:focus-visible{
+    background-color: black;
+    color: white;
+}
+
+button{
+    margin-right: 40px;
+    border-radius: 25px;
+}
+
+button:hover{
+    background-color: #df1414;
+    color: white;
 }
