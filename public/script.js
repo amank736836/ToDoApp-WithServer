@@ -28,7 +28,7 @@ async function add_Function(){
     AddTask(obj);
 };
 
-function AddTask(obj){
+async function AddTask(obj){
 
     const li = document.createElement('li');
     const span = document.createElement('span');
@@ -40,7 +40,7 @@ function AddTask(obj){
     let div1 = document.createElement('div');
     update.addEventListener('click', async () => {
         if(task.value.trim() != ""){
-            await fetch(`/updatetodo?id=${obj.id}&task=${task.value}`);    
+            await fetch(`/updatetodo?id=${obj.id}&task=${task.value}`);
             span.textContent = task.value;
         }
     });
